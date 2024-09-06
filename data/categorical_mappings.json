@@ -1,0 +1,25 @@
+{
+    "HeartDisease":{
+        "0": "Healthy", 
+        "1": "Heart Disease"},
+    "ChestPainType":{
+        "TA": "Typical Angina", 
+        "ATA": "Atypical Angina", 
+        "NAP": "Non-Anginal Pain", 
+        "ASY": "Asymptomatic"},
+    "Sex":{
+        "M": "Male",
+        "F": "Female"},
+    "FastingBS":{
+        "0": "Under 120 mg/dl (not diabetic)",
+        "1": "Over 120 mg/dl (diabetic)"},
+    "RestingECG":{
+        "ST": "ST-T Wave Abnormality",
+        "LVH": "Left Ventricular Hypertrophy"},
+    "ST_Slope":{
+        "Up": "Upsloping (Normal)",
+        "Down": "Downsloping"},
+    "ExerciseAngina":{
+        "Y": "Yes", 
+        "N": "No"}
+}
