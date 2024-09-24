@@ -21,7 +21,7 @@ def categorical_ct(df:pd.DataFrame, field:str):
     Output: bar chart
     '''
     map_ = load_mappings()
-    data = df[field].replace(map_[field]).value_counts().to_dict()
+    data = df[field].astype('str').replace(map_[field]).value_counts().to_dict()
     fig = px.bar(df, 
                 x=data.keys(),
                 y=data.values())
@@ -40,15 +40,15 @@ def grouped_categorical_ct(df:pd.DataFrame, grouper:str, counter:str, colors:lis
     '''
     map_ = load_mappings()
 
-    df = df.groupby(grouper).agg(Count=(counter, 'value_counts')).reset_index()
+    data = df.groupby(grouper).agg(Count=(counter, 'value_counts')).reset_index()
 
     #ensures that bars appear in consistent order across charts
-    df = df.sort_values([counter],ascending=[False]) 
+    grodataupdf = data.sort_values([counter],ascending=[False]) 
     
-    df[grouper] = df[grouper].replace(map_[grouper])
-    df[counter] = df[counter].replace(map_[counter])
+    data[grouper] = data[grouper].astype('str').replace(map_[grouper])
+    data[counter] = data[counter].astype('str').replace(map_[counter])
 
-    fig = px.bar(df, 
+    fig = px.bar(data, 
                 x=grouper,
                 y="Count",
                 color_discrete_sequence=colors,
